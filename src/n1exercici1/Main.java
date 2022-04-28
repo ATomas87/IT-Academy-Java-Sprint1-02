@@ -9,5 +9,12 @@ public class Main {
             System.out.println(e.getMessage());
         }
 
+        String[] saludo = {"Hola", "mundo"};
+        try{
+            System.out.println(saludo[2]);
+        } catch (ArrayIndexOutOfBoundsException e){
+            System.out.println("Vaya, parece que estás accediendo a una posición del array que no existe.");
+            //e.printStackTrace();
+        }
     }
 }
