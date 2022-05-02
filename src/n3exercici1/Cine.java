@@ -16,6 +16,11 @@ public class Cine {
 
     private void getInitialData() {
         Scanner scanner = new Scanner(System.in);
+        System.out.println("******************************************************");
+        System.out.println("*       Sistema de gestión de butacas de Cine        *");
+        System.out.println("******************************************************");
+        System.out.println();
+        System.out.println("***                 Datos iniciales                ***");
         System.out.println("Introduce el número de filas:");
         this.filas = scanner.nextInt();
         System.out.println("Introduce el número de asientos por fila:");
@@ -54,14 +59,17 @@ public class Cine {
         Scanner scanner = new Scanner(System.in);
         int opcion;
 
+        System.out.println("******************************************************");
+        System.out.println("*                   Menú principal                   *");
+        System.out.println("******************************************************");
         System.out.println("1.- Mostrar todas las butacas reservadas");
         System.out.println("2.- Mostrar las butacas reservadas por una persona");
         System.out.println("3.- Reservar una butaca");
         System.out.println("4.- Anular la reserva de una butaca");
         System.out.println("5.- Anular todas las reservas de una persona");
         System.out.println("0.- Salir");
-        System.out.println("----------------------------------------------------");
-        System.out.println("** Introduce una opción: **");
+        System.out.println("-----------------------------------------------------");
+        System.out.println("***             Introduce una opción:              ***");
 
         opcion = scanner.nextInt();
 
@@ -69,12 +77,12 @@ public class Cine {
     }
 
     public void showBookedSeats() {
-        System.out.println("** Mostrar todas las butacas reservadas **");
-        System.out.println(gestionButacas.getButacas());
+        System.out.println("***      Mostrar todas las butacas reservadas      ***");
+        gestionButacas.getButacas().forEach(System.out::println);
     }
 
     public void showSeatsByPerson() {
-        System.out.println("** Mostrar todas las butacas reservadas por una persona **");
+        System.out.println("*** Mostrar las butacas reservadas por una persona ***");
         String cliente = null;
         try {
             cliente = enterPerson();
@@ -89,7 +97,7 @@ public class Cine {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Introduce el número de la fila:");
         int fila = scanner.nextInt();
-        if (fila > 1 && fila <= filas) {
+        if (fila > 0 && fila <= filas) {
             return fila;
         } else {
             throw new IncorrectRowException("Error: La fila introducida no existe.");
@@ -100,7 +108,7 @@ public class Cine {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Introduce el número del asiento:");
         int asiento = scanner.nextInt();
-        if (asiento > 1 && asiento <= asientosFila) {
+        if (asiento > 0 && asiento <= asientosFila) {
             return asiento;
         } else {
             throw new IncorrectSeatException("Error: El asiento introducido no existe.");
@@ -108,7 +116,7 @@ public class Cine {
     }
 
     public void bookSeat() {
-        System.out.println("** Reservar una butaca **");
+        System.out.println("***               Reservar una butaca              ***");
         try {
             int fila = enterRow();
             int asiento = enterSeat();
@@ -120,7 +128,7 @@ public class Cine {
     }
 
     public void cancelBooking() {
-        System.out.println("** Cancelar una reserva **");
+        System.out.println("***              Cancelar una reserva              ***");
         try {
             int fila = enterRow();
             int asiento = enterSeat();
@@ -131,7 +139,7 @@ public class Cine {
     }
 
     public void cancelPersonBookings() {
-        System.out.println("** Cancelar reservas de una persona **");
+        System.out.println("***        Cancelar reservas de una persona        ***");
         try {
             String cliente = enterPerson();
             gestionButacas.getButacas().removeIf(butaca -> butaca.getCliente().equals(cliente));
