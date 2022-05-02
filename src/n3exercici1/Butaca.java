@@ -11,28 +11,22 @@ public class Butaca {
         this.cliente = cliente;
     }
 
+    public Butaca(int fila, int asiento) {
+        this.fila = fila;
+        this.asiento = asiento;
+    }
+
     public int getFila() {
         return fila;
     }
 
-    public void setFila(int fila) {
-        this.fila = fila;
-    }
 
     public int getAsiento() {
         return asiento;
     }
 
-    public void setAsiento(int asiento) {
-        this.asiento = asiento;
-    }
-
     public String getCliente() {
         return cliente;
-    }
-
-    public void setCliente(String cliente) {
-        this.cliente = cliente;
     }
 
     @Override
