@@ -33,7 +33,7 @@ public class Entrada {
             try {
                 userInt = scanner.nextInt();
                 correct = true;
-            } catch (InputMismatchException e){
+            } catch (InputMismatchException e) {
                 System.out.println("Error. Has introducido un dato que no se corresponde con un número entero.");
                 scanner.nextLine();
             }
@@ -49,7 +49,7 @@ public class Entrada {
             try {
                 userFloat = scanner.nextFloat();
                 correct = true;
-            } catch (InputMismatchException e){
+            } catch (InputMismatchException e) {
                 System.out.println("Error. Asegúrate de utilizar una coma en lugar de un punto para introducir el número decimal.");
                 scanner.nextLine();
             }
@@ -65,7 +65,7 @@ public class Entrada {
             try {
                 userDouble = scanner.nextDouble();
                 correct = true;
-            } catch (InputMismatchException e){
+            } catch (InputMismatchException e) {
                 System.out.println("Error. Asegúrate de utilizar una coma en lugar de un punto para introducir el número decimal.");
                 scanner.nextLine();
             }
@@ -81,7 +81,7 @@ public class Entrada {
             try {
                 userChar = scanner.next(".").charAt(0);
                 correct = true;
-            } catch (Exception e){
+            } catch (Exception e) {
                 System.out.println("Error. Has introducido más de un carácter.");
                 scanner.nextLine();
             }
@@ -90,14 +90,15 @@ public class Entrada {
     }
 
     public static String readString(String message) {
-        String userString = "";
+        scanner.nextLine();
+        String userString = null;
         boolean correct = false;
         do {
             System.out.println(message);
             try {
                 userString = scanner.nextLine();
                 correct = true;
-            } catch (Exception e){
+            } catch (Exception e) {
                 System.out.println("Error. El dato introducido no es una cadena de texto.");
                 scanner.nextLine();
             }
@@ -111,12 +112,12 @@ public class Entrada {
             System.out.println(message);
             try {
                 userBoolean = scanner.next("[sSnN]").charAt(0);
-                if (userBoolean == 's' || userBoolean == 'S'){
+                if (userBoolean == 's' || userBoolean == 'S') {
                     return true;
-                } else if (userBoolean == 'n' || userBoolean == 'N'){
+                } else if (userBoolean == 'n' || userBoolean == 'N') {
                     return false;
                 }
-            } catch (Exception e){
+            } catch (Exception e) {
                 System.out.println("Error. Asegúrate de responder correctamente (S/N).");
                 scanner.nextLine();
             }
